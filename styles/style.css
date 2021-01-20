@@ -63,10 +63,23 @@ header img {
     height: var(--header-height);
 }
 
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 li {
     border: 1px solid #708090;
     padding: 0.5rem;
     text-align: center;
+    margin: var(--gutter);
+    height: 475px;
+}
+
+li img {
+    width: 250px;
 }
   
 footer {

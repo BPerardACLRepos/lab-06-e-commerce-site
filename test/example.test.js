@@ -18,7 +18,5 @@ test('time to test a function', (expect) => {
 
     const actual = shelveBook(testBook);
 
-    //Expect
-    // Make assertions about what is expected versus the actual result
     expect.equal(actual.outerHTML, expected);
 });
