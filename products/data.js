@@ -5,7 +5,7 @@ export const books = [
         author: `Taro Gomi`,
         image: `../assets/everyone-poops.png`,
         description: `It all tastes the same coming out.`,
-        category: `Children's Literature`,
+        genre: `Children's Literature`,
         price: `11.11`,
     }
 ]
