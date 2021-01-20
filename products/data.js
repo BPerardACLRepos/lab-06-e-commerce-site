@@ -26,4 +26,4 @@ export const books = [
         genre: `Non-Fiction`,
         price: `8.88`,
     },
-]
+];

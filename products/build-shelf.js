@@ -37,6 +37,5 @@ export function shelveBook(book) {
     button.textContent = `Add to Cart`;
     li.append(button);
 
-    console.log(li);
     return li;
 }
