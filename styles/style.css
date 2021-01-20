@@ -63,8 +63,10 @@ header img {
     height: var(--header-height);
 }
 
-p {
-    margin: var(--gutter);
+li {
+    border: 1px solid #708090;
+    padding: 0.5rem;
+    text-align: center;
 }
   
 footer {
