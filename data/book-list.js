@@ -6,7 +6,7 @@ export const books = [
         image: `../assets/everyone-poops.png`,
         description: `It all tastes the same coming out.`,
         genre: `Children's Literature`,
-        price: `11.11`,
+        price: 11.11,
     },
     {
         id: 2,
@@ -15,7 +15,7 @@ export const books = [
         image: `../assets/the-rock.png`,
         description: `Can you smell that?`,
         genre: `Culinary`,
-        price: `15.51`,
+        price: 15.51,
     },
     {
         id: 3,
@@ -24,6 +24,6 @@ export const books = [
         image: `../assets/post-no-bills.png`,
         description: `Nobody will ever believe you.`,
         genre: `Non-Fiction`,
-        price: `8.88`,
+        price: 8.88,
     },
 ];

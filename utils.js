@@ -6,3 +6,7 @@ export function findById(id, array) {
     }
     return null;
 }
+
+export function calcItemTotal(item, quantity) {
+
+}
