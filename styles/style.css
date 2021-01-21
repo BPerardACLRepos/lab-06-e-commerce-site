@@ -93,6 +93,7 @@ li {
     text-align: center;
     margin: var(--gutter);
     height: 475px;
+    background-color: whitesmoke;
 }
 
 li img {
@@ -109,6 +110,7 @@ td {
     padding: 0 0.5rem;
     text-align: center;
     border: solid 1px slategray;
+    background-color: whitesmoke;
 }
 
 th {
