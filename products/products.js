@@ -1,4 +1,4 @@
-import { books } from './data.js';
+import { books } from '../data/book-list.js';
 import { shelveBook } from './build-shelf.js';
 
 const bookshelf = document.querySelector('#bookshelf');
