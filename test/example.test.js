@@ -1,5 +1,5 @@
 import { shelveBook } from '../products/build-shelf.js';
-import { findById, calcItemTotal } from '../utils.js';
+import { findById, calcItemTotal, calcOrderTotal } from '../utils.js';
 import { addCartItem } from '../cart/build-cart.js';
 
 const test = QUnit.test;
