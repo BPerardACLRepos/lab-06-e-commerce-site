@@ -95,3 +95,14 @@ footer {
 .hide {
     display: none;
 }
+
+table,
+td {
+    padding: 0 0.5rem;
+    text-align: center;
+    border: solid 1px slategray;
+}
+
+th {
+    font-weight: 900;
+}

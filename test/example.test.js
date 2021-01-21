@@ -1,5 +1,6 @@
 import { shelveBook } from '../products/build-shelf.js';
 import { findById, calcItemTotal } from '../utils.js';
+import { addCartItem } from '../cart/build-cart.js';
 
 const test = QUnit.test;
 
@@ -97,4 +98,24 @@ test('function takes an item & quantity and returns an integer price', (expect) 
     const expectedZero = 0;
     const actualZero = calcItemTotal(item, 0);
     expect.deepEqual(actualZero, expectedZero);
+});
+
+//addCartItem tests
+test('function takes an id and quantity and returns an HTML row for appending to cart table', (expect) => {
+
+    const testBook = {
+        id: 1,
+        author: `Taro Gomi`,
+        title: `Everyone Poops`,
+        image: `../assets/everyone-poops.png`,
+        description: `It all tastes the same coming out.`,
+        genre: `Children's Literature`,
+        price: 11.11,
+    };
+
+    const expected = `<tr><td>Everyone Poops by Taro Gomi</td><td>3</td><td>33.33</td></tr>`;
+
+    const actual = addCartItem(1, 3);
+
+    expect.equal(actual.outerHTML, expected);
 });
