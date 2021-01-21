@@ -122,3 +122,43 @@ test('function takes a cart item and array and returns an HTML row for appending
     const actual = addCartItem(cartItem, testBook);
     expect.equal(actual.outerHTML, expected);
 });
+
+//calcOrderTotal tests
+test('function takes a cart array and products array and returns an integer total', (expect) => {
+    const cartArray = [
+        {
+            id: 3,
+            quantity: 2
+        },
+        {
+            id: 2,
+            quantity: 1
+        },
+    ];
+
+    const productsArray = [
+        {
+            id: 2,
+            author: `The Rock`,
+            title: `Cooking`,
+            image: `../assets/the-rock.png`,
+            description: `Can you smell that?`,
+            genre: `Culinary`,
+            price: 15.51,
+        },
+        {
+            id: 3,
+            author: `Bill Murray`,
+            title: `Post No Bills`,
+            image: `../assets/post-no-bills.png`,
+            description: `Nobody will ever believe you.`,
+            genre: `Non-Fiction`,
+            price: 8.88,
+        },
+    ];
+
+    const expected = 33.27;
+    const actual = calcOrderTotal(cartArray, productsArray);
+    expect.equal(actual, expected);
+});
+
