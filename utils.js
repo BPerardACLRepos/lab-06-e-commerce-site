@@ -8,5 +8,5 @@ export function findById(id, array) {
 }
 
 export function calcItemTotal(item, quantity) {
-
+    return item.price * quantity;
 }

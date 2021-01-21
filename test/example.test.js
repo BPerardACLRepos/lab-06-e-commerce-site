@@ -95,6 +95,6 @@ test('function takes an item & quantity and returns an integer price', (expect) 
 
 
     const expectedZero = 0;
-    const actualZero = findById(item, 0);
+    const actualZero = calcItemTotal(item, 0);
     expect.deepEqual(actualZero, expectedZero);
 });
