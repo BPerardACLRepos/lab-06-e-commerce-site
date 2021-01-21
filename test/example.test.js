@@ -20,7 +20,6 @@ test('function takes object and returns formatted HTML for appending', (expect) 
     const expected = `<li><h4 class="books-author">Taro Gomi</h4><h3 class="books-title">Everyone Poops</h3><img class="books-image" src="../assets/everyone-poops.png" alt="Everyone Poops"><p class="books-description">It all tastes the same coming out.</p><p class="books-genre">Children's Literature</p><p class="books-price">$11.11</p><button value="1">Add to Cart</button></li>`;
 
     const actual = shelveBook(testBook);
-
     expect.equal(actual.outerHTML, expected);
 });
 
@@ -72,7 +71,6 @@ test('function takes an id & array and returns item with matched id or null if n
 
 
     const expectedNull = null;
-
     const actualNull = findById(88, items);
     expect.deepEqual(actualNull, expectedNull);
 });
@@ -101,21 +99,26 @@ test('function takes an item & quantity and returns an integer price', (expect) 
 });
 
 //addCartItem tests
-test('function takes an id and quantity and returns an HTML row for appending to cart table', (expect) => {
-
-    const testBook = {
+test('function takes a cart item and array and returns an HTML row for appending to cart table', (expect) => {
+    const cartItem = {
         id: 1,
-        author: `Taro Gomi`,
-        title: `Everyone Poops`,
-        image: `../assets/everyone-poops.png`,
-        description: `It all tastes the same coming out.`,
-        genre: `Children's Literature`,
-        price: 11.11,
+        quantity: 3
     };
+
+    const testBook = [
+        {
+            id: 1,
+            author: `Taro Gomi`,
+            title: `Everyone Poops`,
+            image: `../assets/everyone-poops.png`,
+            description: `It all tastes the same coming out.`,
+            genre: `Children's Literature`,
+            price: 11.11,
+        },
+    ];
 
     const expected = `<tr><td>Everyone Poops by Taro Gomi</td><td>3</td><td>33.33</td></tr>`;
 
-    const actual = addCartItem(1, 3);
-
+    const actual = addCartItem(cartItem, testBook);
     expect.equal(actual.outerHTML, expected);
 });
