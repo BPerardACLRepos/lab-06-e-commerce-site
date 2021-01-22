@@ -1,3 +1,5 @@
+import { addToCart } from "../cart-utils.js";
+
 export function shelveBook(book) {
     const li = document.createElement('li');
 
@@ -32,10 +34,21 @@ export function shelveBook(book) {
     pPrice.textContent = `$${book.price}`;
     li.append(pPrice);
 
+    const input = document.createElement('input');
+    input.type = 'number';
+    input.min = '1';
+    li.append(input);
+
     const button = document.createElement('button');
     button.value = book.id;
     button.textContent = `Add to Cart`;
     li.append(button);
+
+    button.addEventListener('click', () => {
+        if (input.valueAsNumber > 0 && input.valueAsNumber % 1 === 0) {
+            addToCart(parseInt(button.value), input.valueAsNumber)
+        }
+    });
 
     return li;
 }
