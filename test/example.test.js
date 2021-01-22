@@ -167,15 +167,16 @@ test('function takes a cart array and products array and returns an integer tota
 //clearCart tests
 test('function clears local storage associated with key assigned to const CART', (expect) => {
     localStorage.setItem(CART, 'yollo');
+    clearCart();
 
     const expected = null;
-    const actual = clearCart();
+    const actual = localStorage.getItem(CART);
     expect.equal(actual, expected);
 });
 
 //setCart tests
 test('function stringifies argument and assigns it to key CART in local storage', (expect) => {
-    clearCart();
+    localStorage.removeItem(CART);
     setCart('yollo');
 
 
@@ -186,13 +187,13 @@ test('function stringifies argument and assigns it to key CART in local storage'
 
 //getCart tests
 test('function returns parsed JSON data for local storage key CART, or empty array if no data present for CART', (expect) => {
-    clearCart();
+    localStorage.removeItem(CART);
 
     const expected = [];
     const actual = getCart();
     expect.deepEqual(actual, expected);
 
-    setCart('yollo');
+    localStorage.setItem(CART, JSON.stringify('yollo'));
     const expectedSet = 'yollo';
     const actualSet = getCart();
     expect.equal(actualSet, expectedSet);

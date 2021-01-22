@@ -2,7 +2,6 @@ import { CART } from './constants.js';
 
 export function clearCart() {
     localStorage.removeItem(CART);
-    return null;
 }
 
 export function getCart() {
