@@ -1,9 +1,10 @@
 import { addCartItem } from './build-cart.js';
-import { calcOrderTotal } from '../utils.js';
+import { calcItemTotal, calcOrderTotal, findById } from '../utils.js';
 import { books } from '../data/book-list.js';
-import { addToCart, clearCart, getCart } from '../cart-utils.js';
+import { clearCart, getCart } from '../cart-utils.js';
 
 const shoppingCart = document.querySelector('#shopping-cart');
+const placeOrderButton = document.querySelector('#place-order-button');
 const storedCart = getCart();
 
 if (!storedCart.length) {
@@ -32,3 +33,29 @@ if (!storedCart.length) {
 
     shoppingCart.append(tdBlank, tdLabel, tdTotal);
 }
+
+placeOrderButton.addEventListener('click', () => {
+    const activeOrder = getCart();
+
+    if (!activeOrder.length) {
+        alert('Your cart is empty, add items before placing your order.')
+    } else {
+        let receipt = [];
+        let total = 0;
+
+        for (let orderItem of activeOrder) {
+            const lineItem = {};
+            const itemInfo = findById(orderItem.id, books);
+            lineItem.TITLE = itemInfo.title;
+            lineItem.QUANTITY = orderItem.quantity
+            lineItem.COST = calcItemTotal(itemInfo, orderItem.quantity);
+            total += lineItem.COST;
+            receipt.push(lineItem);
+        }
+
+        receipt.push({ Total: `$${total}` });
+        alert(JSON.stringify(receipt, true, 2));
+        clearCart();
+        location = '../';
+    }
+});
