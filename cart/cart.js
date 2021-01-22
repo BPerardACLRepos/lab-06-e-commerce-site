@@ -1,30 +1,12 @@
 import { addCartItem } from './build-cart.js';
 import { calcOrderTotal } from '../utils.js';
-import { userCart } from '../data/cart-items.js';
 import { books } from '../data/book-list.js';
-import { addToCart, clearCart, getCart, setCart } from '../cart-utils.js';
+import { addToCart, clearCart, getCart } from '../cart-utils.js';
 
 const shoppingCart = document.querySelector('#shopping-cart');
+const storedCart = getCart();
 
-clearCart();
-const CART = 'cart';
-let testCart = [
-    {
-        id: 4,
-        quantity: 6
-    },
-    {
-        id: 3,
-        quantity: 1
-    },
-];
-setCart(testCart);
-addToCart(1, 2);
-let dog = getCart();
-console.log(dog);
-
-//flip if else when adding local storage functions
-if (userCart.length === 0) {
+if (!storedCart.length) {
     const tdCart = document.createElement('td');
     tdCart.textContent = `CART`;
 
@@ -36,8 +18,8 @@ if (userCart.length === 0) {
 
     shoppingCart.append(tdCart, tdIs, tdEmpty);
 } else {
-    for (let cartItem of userCart) {
-        const trItem = addCartItem(cartItem, books);
+    for (let storedItem of storedCart) {
+        const trItem = addCartItem(storedItem, books);
         shoppingCart.append(trItem);
     }
     const tdBlank = document.createElement('td');
@@ -46,7 +28,7 @@ if (userCart.length === 0) {
     tdLabel.textContent = `Order Total`;
 
     const tdTotal = document.createElement('td');
-    tdTotal.textContent = `$${calcOrderTotal(userCart, books)}`;
+    tdTotal.textContent = `$${calcOrderTotal(storedCart, books)}`;
 
     shoppingCart.append(tdBlank, tdLabel, tdTotal);
 }
