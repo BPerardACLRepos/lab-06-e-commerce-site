@@ -1,13 +1,13 @@
 import { CART } from './constants.js';
 
-const emptyArray = [];
-
 export function clearCart() {
     localStorage.removeItem(CART);
+    return null;
 }
 
 export function getCart() {
     const storedCart = localStorage.getItem(CART);
+    const emptyArray = [];
 
     if (!storedCart) {
         return emptyArray;
@@ -21,6 +21,7 @@ export function setCart(activeCart) {
     const stringCart = JSON.stringify(activeCart);
 
     localStorage.setItem(CART, stringCart);
+    return
 }
 
 export function addToCart(id, quantity) {

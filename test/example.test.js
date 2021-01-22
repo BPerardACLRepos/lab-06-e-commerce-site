@@ -1,6 +1,8 @@
 import { shelveBook } from '../products/build-shelf.js';
 import { findById, calcItemTotal, calcOrderTotal } from '../utils.js';
 import { addCartItem } from '../cart/build-cart.js';
+import { getCart, clearCart, setCart } from '../cart-utils.js';
+import { CART } from '../constants.js';
 
 const test = QUnit.test;
 
@@ -17,7 +19,7 @@ test('function takes object and returns formatted HTML for appending', (expect) 
         price: 11.11,
     };
 
-    const expected = `<li><h4 class="books-author">Taro Gomi</h4><h3 class="books-title">Everyone Poops</h3><img class="books-image" src="../assets/everyone-poops.png" alt="Everyone Poops"><p class="books-description">It all tastes the same coming out.</p><p class="books-genre">Children's Literature</p><p class="books-price">$11.11</p><button value="1">Add to Cart</button></li>`;
+    const expected = `<li><h4 class="books-author">Taro Gomi</h4><h3 class="books-title">Everyone Poops</h3><img class="books-image" src="../assets/everyone-poops.png" alt="Everyone Poops"><p class="books-description">It all tastes the same coming out.</p><p class="books-genre">Children's Literature</p><p class="books-price">$11.11</p><input type=\"number\" min=\"1\"><button value="1">Add to Cart</button></li>`;
 
     const actual = shelveBook(testBook);
     expect.equal(actual.outerHTML, expected);
@@ -162,3 +164,36 @@ test('function takes a cart array and products array and returns an integer tota
     expect.equal(actual, expected);
 });
 
+//clearCart tests
+test('function clears local storage associated with key assigned to const CART', (expect) => {
+    localStorage.setItem(CART, 'yollo');
+
+    const expected = null;
+    const actual = clearCart();
+    expect.equal(actual, expected);
+});
+
+//setCart tests
+test('function stringifies argument and assigns it to key CART in local storage', (expect) => {
+    clearCart();
+    setCart('yollo');
+
+
+    const expected = JSON.stringify('yollo');
+    const actual = localStorage.getItem(CART);
+    expect.equal(actual, expected);
+});
+
+//getCart tests
+test('function returns parsed JSON data for local storage key CART, or empty array if no data present for CART', (expect) => {
+    clearCart();
+
+    const expected = [];
+    const actual = getCart();
+    expect.deepEqual(actual, expected);
+
+    setCart('yollo');
+    const expectedSet = 'yollo';
+    const actualSet = getCart();
+    expect.equal(actualSet, expectedSet);
+});
