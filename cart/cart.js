@@ -38,7 +38,7 @@ placeOrderButton.addEventListener('click', () => {
     const activeOrder = getCart();
 
     if (!activeOrder.length) {
-        alert('Your cart is empty, add items before placing your order.')
+        alert('Your cart is empty, add items before placing your order.');
     } else {
         let receipt = [];
         let total = 0;
@@ -47,7 +47,7 @@ placeOrderButton.addEventListener('click', () => {
             const lineItem = {};
             const itemInfo = findById(orderItem.id, books);
             lineItem.TITLE = itemInfo.title;
-            lineItem.QUANTITY = orderItem.quantity
+            lineItem.QUANTITY = orderItem.quantity;
             lineItem.COST = calcItemTotal(itemInfo, orderItem.quantity);
             total += lineItem.COST;
             receipt.push(lineItem);

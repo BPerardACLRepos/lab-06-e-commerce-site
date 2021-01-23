@@ -20,7 +20,6 @@ export function setCart(activeCart) {
     const stringCart = JSON.stringify(activeCart);
 
     localStorage.setItem(CART, stringCart);
-    return
 }
 
 export function addToCart(id, quantity) {

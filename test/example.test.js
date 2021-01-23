@@ -19,7 +19,7 @@ test('function takes object and returns formatted HTML for appending', (expect) 
         price: 11.11,
     };
 
-    const expected = `<li><h4 class="books-author">Taro Gomi</h4><h3 class="books-title">Everyone Poops</h3><img class="books-image" src="../assets/everyone-poops.png" alt="Everyone Poops"><p class="books-description">It all tastes the same coming out.</p><p class="books-genre">Children's Literature</p><p class="books-price">$11.11</p><input type=\"number\" min=\"1\"><button value="1">Add to Cart</button></li>`;
+    const expected = `<li><h4 class="books-author">Taro Gomi</h4><h3 class="books-title">Everyone Poops</h3><img class="books-image" src="../assets/everyone-poops.png" alt="Everyone Poops"><p class="books-description">It all tastes the same coming out.</p><p class="books-genre">Children's Literature</p><p class="books-price">$11.11</p><input type="number" min="1"><button value="1">Add to Cart</button></li>`;
 
     const actual = shelveBook(testBook);
     expect.equal(actual.outerHTML, expected);
