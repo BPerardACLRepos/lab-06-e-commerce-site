@@ -7,4 +7,5 @@ productEntryForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const formData = new FormData(productEntryForm);
     enterNewProduct(formData);
+    productEntryForm.reset();
 });
