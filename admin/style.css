@@ -1,4 +1,18 @@
+nav {
+    border: 1px red solid;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+}
+
 input,
 label {
     display: block;
+}
+
+input {
+    margin-bottom: 0.5rem;
+}
+
+a {
+    padding: 0 0.25rem;
 }
