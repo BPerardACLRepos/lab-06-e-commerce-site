@@ -10,26 +10,23 @@
 
 <body>
     <form id="product-entry">
-        <label for="id">Enter ID:</label>
-        <input type="number" id="id" name="id">
-
         <label for="author">Enter Author:</label>
-        <input type="text" id="author" name="author">
+        <input type="text" id="author" name="author" required>
 
         <label for="title">Enter Title:</label>
-        <input type="text" id="title" name="title">
+        <input type="text" id="title" name="title" required>
 
         <label for="image">Enter Image SRC:</label>
-        <input type="text" id="image" name="image">
+        <input type="text" id="image" name="image" required>
 
         <label for="description">Enter Description:</label>
-        <input type="text" id="description" name="description">
+        <input type="text" id="description" name="description" required>
 
         <label for="genre">Enter Genre:</label>
-        <input type="text" id="genre" name="genre">
+        <input type="text" id="genre" name="genre" required>
 
         <label for="price">Enter Price:</label>
-        <input type="number" id="price" name="price">
+        <input type="number" id="price" name="price" min="0.00" step="0.01" required>
 
         <input type="submit" value="Submit">
     </form>
