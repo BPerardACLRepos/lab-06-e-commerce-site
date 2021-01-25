@@ -1,4 +1,3 @@
-import { books } from '../data/book-list.js';
 import { enterNewProduct } from './entry-utils.js';
 
 const productEntryForm = document.querySelector('#product-entry');
